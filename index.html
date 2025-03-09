@@ -17,6 +17,18 @@
   }
   gtag("js", new Date());
   gtag("config", "G-15XJ6B01PR");
+  document.addEventListener("DOMContentLoaded", () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get("utm_source") === "qr") {
+    window.gtag("event", "qr_code_scan", {
+      event_category: "QR Code",
+      event_label: "User scanned QR code",
+      value: 1,
+    });
+    console.log("QR Code Visitor!")
+  }
+});
+
 </script>
   </head>
   <body>
